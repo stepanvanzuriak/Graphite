@@ -1,9 +1,12 @@
 require "./spec_helper"
 
 describe Graphite do
-  # TODO: Write tests
+  it "LinkedList" do
+    # false.should eq(true)
 
-  it "works" do
-    false.should eq(true)
+    list = Graphite::LinkedList.new(10)
+    puts list.peek
+    puts list.top
+
   end
 end

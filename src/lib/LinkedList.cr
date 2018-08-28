@@ -5,16 +5,18 @@ class LinkedList(L)
   end
 
   def initialize(value : L)
-    @head = Node(L).new
+    @head = Node(L).new(value)
     @tail = @head
-
-    self.append(value)
   end
   
   def prepend(value : L)
     new_node = Node(L).new(value)
-    @head = new_node
     
+    current_node = @head
+
+    @head = new_node
+    @head.next = current_node
+
     if @tail.nil?
       @tail = new_node
     end
@@ -68,6 +70,24 @@ class LinkedList(L)
     end
 
     deleted_node
+  end
+
+  def find(value)
+    if @head.nil?
+      return Node(L).new
+    end
+
+    current_node = @head
+    
+    while !current_node.nil?
+      if current_node.value == value
+        return current_node
+      end
+
+      current_node = current_node.next
+    end
+
+    return Node(L).new
   end
 
   def top

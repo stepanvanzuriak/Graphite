@@ -40,37 +40,41 @@ class LinkedList(L)
     return value
   end
 
-  def delete(value : T)
-    if @head.nil?
-      return nil
-    end
+  # Borken: https://github.com/crystal-lang/crystal/pull/5807
+  #
+  # def delete(value : L)
+  #   if @head.nil?
+  #     return nil
+  #   end
 
-    deleted_node = nil
+  #   deleted_node = nil
 
-    while (!@head.nil? && @head.value == value)
-      deleted_node = @head
-      @head = @head.next
-    end
+  #   if @head.value == value
+  #     deleted_node = @head
+  #     @head = @head.next
 
-    current_node = @head
+  #     return deleted_node
+  #   end
+    
+  #   current_node = @head
 
-    if (!current_node.nil?)
-      while(!current_node.next.nil?)
-        if current_node.next.value == value
-          deleted_node = current_node.next
-          current_node.next = current_node.next.next
-        else
-          current_node = current_node.next
-        end
-      end
-    end
+  #   if (!current_node.nil?)
+  #     while(!current_node.next.nil?)
+  #       if current_node.next.value == value
+  #         deleted_node = current_node.next
+  #         current_node.next = current_node.next.next
+  #       else
+  #         current_node = current_node.next
+  #       end
+  #     end
+  #   end
 
-    if @tail.value == value
-      @tail = current_node
-    end
+  #   if @tail.value == value
+  #     @tail = current_node
+  #   end
 
-    deleted_node
-  end
+  #   deleted_node
+  # end
 
   def find(value)
     if @head.nil?

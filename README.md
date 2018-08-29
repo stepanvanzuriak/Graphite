@@ -9,7 +9,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   Graphite:
-    github: your-github-user/Graphite
+    github: stepanvanzuriak/Graphite
 ```
 
 ## Usage

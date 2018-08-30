@@ -6,4 +6,7 @@ module Graphite
 
   class LinkedList(L) < LinkedList(L)
   end
+
+  class DoublyLinkedList(L) < DoublyLinkedList(L)
+  end
 end
